@@ -107,3 +107,7 @@ The `urlManager.reverse()` takes two arguments:
 
 1. The name of the view
 2. An object of parameters to match against the view's url pattern
+
+Demo
+----
+A quick demo can be found in the `gh-pages` branch or a live demo can be found [here](http://frenchtoast747.github.io/angular-url-manager/)
