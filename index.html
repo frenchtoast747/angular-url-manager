@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>URL Manager!</title>
+    <base href="/url.manager/" />
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/url-manager.js"></script>
+
+    <script type="text/ng-template" id="color_list.html">
+        <div ng-controller="ColorListCtrl">
+            <p>----------------- Link By Param ---------------</p>
+            <ul>
+                <li ng-repeat="color in colors">
+                    <alink view="ColorDetailView" text="{{ color.name }}" name="{{ color.name }}" hex="{{ color.hex }}" />
+                </li>
+            </ul>
+
+            <p>-------------- Link By Object Only ------------</p>
+            <ul>
+                <li ng-repeat="color in colors">
+                    <alink view="ColorDetailView" text="{{ color.name }}" obj="color" />
+                </li>
+            </ul>
+        </div>
+    </script>
+    <script type="text/ng-template" id="color_detail.html">
+        <div ng-controller="ColorDetailCtrl">
+            <div style="width:100px; height:100px; background-color: #{{ colorValue }}">{{ colorName }}</div>
+        </div>
+    </script>
+</head>
+<body>
+    <div class="container" ng-controller="ColorListCtrl">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>
