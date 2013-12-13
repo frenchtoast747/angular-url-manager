@@ -7,6 +7,10 @@ Why I made this...
 ------------------
 I'm used to using Django's URLConf, Views (Controllers), and Models setup. It was driving me nuts to see every example out there hard coding their URLs into the templates. For small applications where you only have a single link for a resource, this may not be a big deal, but for even middle sized applications, as soon as you want to change your URLs at all, you have to pretty much sed every instance of that URL.
 
+Why would you want this?
+-----------------------
+If you're used to using Django's {% url %} tag or reverse() function and want the same functionality within your AngularJS app, then you'll probabaly like this.
+
 Dependencies
 ------------
 - ngRoute
