@@ -75,12 +75,14 @@ The `url-manager` module includes a directive, `alink`, as a convience function 
 Assuming there is a view that exists with the name `BookDetailView` and has a url pattern of `'/books/:id/:slug/'` then the following `<a>` tag will be generated (and also replace the `<alink>` directive):
 
 ```html
-<a href="/books/42/the-adventures-of-fred-funnies">The Adventures of Fred Funnies</a>
+<a href="/books/42/the-adventures-of-fred-funnies/">The Adventures of Fred Funnies</a>
 ```
+**Note:** The view `BookDetailView` is declared in the `addUrlPattern()` function.
+
 
 The `<alink>` directive has two required attributes, `view` which specifies the name of the view and `text` which specifies the new `<a>` tag's text node. Any other additional attribute added will be considered a keyword argument to the URL reverse function. Any attribute that does not match any of the url pattern's keywords will be safely ignored. For example: passing the attributes `id`, `slug`, and `title` with a url pattern of `/books/:id/:slug/`, the `title` attribute will be ignored and `id` and `slug` will match thus producing the url `/books/42/the-adventures-of-fred-funnies`.
 
-Since, most of the time, data is usually passed around as objects, the `<alink>` directive has a special attribute `obj` that accepts a JavaScript object. So, assuming from the previous examples that `books` is a list of `book` objects where each book has the attributes `id`, `title`, and `slug`, the `<alink>` example can be simplified to:
+Since, most of the time, data is usually passed around as objects, the `<alink>` directive has a special attribute `obj` that accepts a JavaScript object. Assume the variable `books` is a list of `book` objects where each book has the attributes `id`, `title`, and `slug`, the `<alink>` example can be simplified to:
 
 ```html
 <div ng-controller="BookListCtrl">
@@ -93,7 +95,7 @@ Since, most of the time, data is usually passed around as objects, the `<alink>`
 
 Using the `urlManager.reverse()` method in controllers
 ------------------------------------------------------
-Sometimes you may want to create a URL within the controller itself. This is simple. All that is needed to be done is to inject the `urlManager` into your controller and then call its `reverse` method:
+Sometimes you may want to create a URL within the controller itself. All that is needed to be done is to inject the `urlManager` into your controller and then call its `reverse` method:
 
 ```javascript
 app.controller('BookListCtrl', function(urlManager, resourceManager, $location){
