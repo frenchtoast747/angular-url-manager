@@ -9,7 +9,7 @@ I'm used to using Django's URLConf, Views (Controllers), and Models setup. It wa
 
 Why would you want this?
 -----------------------
-If you're used to using Django's {% url %} tag or reverse() function and want the same functionality within your AngularJS app, then you'll probabaly like this.
+If you're used to using Django's `{% url %}` tag or `reverse()` function and want the same functionality within your AngularJS app, then you'll probabaly like this.
 
 Dependencies
 ------------
