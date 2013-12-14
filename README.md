@@ -117,3 +117,7 @@ The `urlManager.reverse()` takes two arguments:
 Demo
 ----
 A quick demo can be found in the `gh-pages` branch or a live demo can be found [here](http://frenchtoast747.github.io/angular-url-manager/)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/frenchtoast747/angular-url-manager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
