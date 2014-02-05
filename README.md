@@ -1,8 +1,6 @@
 angular-url-manager
 ===================
 
-**DISCLAIMER:** I'm new to AngularJS so I'm probably doing something wrong...
-
 Why I made this...
 ------------------
 I'm used to using Django's URLConf, Views (Controllers), and Models setup. It was driving me nuts to see every example out there hard coding their URLs into the templates. For small applications where you only have a single link for a resource, this may not be a big deal, but for even middle sized applications, as soon as you want to change your URLs at all, you have to pretty much sed every instance of that URL.
