@@ -85,7 +85,6 @@ angular.module('url.manager', ['ngRoute'])
                 var key = segmentMatch[1];
                 result.push(params[key]);
                 result.push(segmentMatch[2] || '');
-                delete params[key];
             }
         });
         return result.join('');
