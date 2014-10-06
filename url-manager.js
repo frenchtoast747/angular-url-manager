@@ -118,10 +118,11 @@ angular.module('url.manager', ['ngRoute'])
     return {
         restrict: 'E',
         replace : true,
+        transclude: true,
         scope: {
             obj: "="
         },
-        template: "<a ng-href='{{ url }}'>{{ text }}</a>",
+        template: "<a ng-href='{{ url }}' ng-transclude></a>",
         link: function(scope, element, attrs){
             var params = {};
             if('obj' in attrs){

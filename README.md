@@ -60,12 +60,12 @@ There is also an `otherwise` method which is just a wrapper around `ngRoute`'s `
 
 Usage
 -----
-The `url-manager` module includes a directive, `alink`, as a convience function that will output an `<a>` tag with the current URL given a view name and keyword arguments:
+The `url-manager` module includes a directive, `alink`, as a convenience function that will output an `<a>` tag with the current URL given a view name and keyword arguments:
 
 ```html
 <div ng-controller="BookListCtrl">
   <ul>
-    <li><alink view="BookDetailView" id="42" slug="the-adventures-of-fred-funnies" text="The Adventures of Fred Funnies" /></li>
+    <li><alink view="BookDetailView" id="42" slug="the-adventures-of-fred-funnies">The Adventures of Fred Funnies</alink></li>
   </ul>
 </div>
 ```
@@ -78,14 +78,16 @@ Assuming there is a view that exists with the name `BookDetailView` and has a ur
 **Note:** The view `BookDetailView` is declared in the `addUrlPattern()` function.
 
 
-The `<alink>` directive has two required attributes, `view` which specifies the name of the view and `text` which specifies the new `<a>` tag's text node. Any other additional attribute added will be considered a keyword argument to the URL reverse function. Any attribute that does not match any of the url pattern's keywords will be safely ignored. For example: passing the attributes `id`, `slug`, and `title` with a url pattern of `/books/:id/:slug/`, the `title` attribute will be ignored and `id` and `slug` will match thus producing the url `/books/42/the-adventures-of-fred-funnies`.
+The `<alink>` directive has one required attribute, `view`, which specifies the name of the view. Any other additional attribute added will be considered a keyword argument to the URL reverse function. Any attribute that does not match any of the url pattern's keywords will be safely ignored. For example: passing the attributes `id`, `slug`, and `title` with a url pattern of `/books/:id/:slug/`, the `title` attribute will be ignored and `id` and `slug` will match thus producing the url `/books/42/the-adventures-of-fred-funnies`.
+
+`<alink>` supports transclusion thus allowing for the contents of the newly created `<a>` tag to contain HTML.
 
 Since, most of the time, data is usually passed around as objects, the `<alink>` directive has a special attribute `obj` that accepts a JavaScript object. Assume the variable `books` is a list of `book` objects where each book has the attributes `id`, `title`, and `slug`, the `<alink>` example can be simplified to:
 
 ```html
 <div ng-controller="BookListCtrl">
   <ul>
-    <li ng-repeat="book in boooks"><alink view="BookDetailView" obj="book" text="{{ book.title }}" /></li>
+    <li ng-repeat="book in boooks"><alink view="BookDetailView" obj="book">{{ book.title }}</alink></li>
   </ul>
 </div>
 ```
@@ -115,7 +117,3 @@ The `urlManager.reverse()` takes two arguments:
 Demo
 ----
 A quick demo can be found in the `gh-pages` branch or a live demo can be found [here](http://frenchtoast747.github.io/angular-url-manager/)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/frenchtoast747/angular-url-manager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
